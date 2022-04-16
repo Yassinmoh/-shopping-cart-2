@@ -1,0 +1,34 @@
+[
+    {
+        "id":"id1",
+        "title":"Camera",
+        "imageUrl":"/images/camera.jpg",
+        "desc":"this is Camera",
+        "price":"30",
+        "size":["S","M"]
+    },
+    {
+        "id":"id2",
+        "title":"mobile",
+        "imageUrl":"/images/mobile.jpg",
+        "desc":"this is Mobile",
+        "price":"120",
+        "size":["L","M"]
+    },
+    {
+        "id":"id3",
+        "title":"watch",
+        "imageUrl":"/images/watch.jpg",
+        "desc":"this is Smart Watch",
+        "price":"55",
+        "size":["S","L","M"]
+    },
+    {
+        "id":"id4",
+        "title":"labtop",
+        "imageUrl":"/images/mobile.jpg",
+        "desc":"this is Mobile",
+        "price":"30",
+        "size":["S","M"]
+    }
+]
