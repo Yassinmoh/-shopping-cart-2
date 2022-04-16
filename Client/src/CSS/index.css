@@ -26,14 +26,4 @@ main{
   grid-area:main;
 }
 
-footer{
-  grid-area:footer;
-  background-color: #0566a1;
-  color:#fff;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size:30px;
-  font-weight: 800;
-}
+
