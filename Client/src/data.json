@@ -26,7 +26,7 @@
     {
         "id":"id4",
         "title":"labtop",
-        "imageUrl":"/images/mobile.jpg",
+        "imageUrl":"/images/labtop.jpg",
         "desc":"this is Mobile",
         "price":"30",
         "size":["S","M"]
