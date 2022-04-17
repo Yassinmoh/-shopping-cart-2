@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Products.css'
-const Products = ({products}) => {
+import ProductModal from './ProductModal'
+const Products = ({ products }) => {
+    const [product, setProduct] = useState('')
+
+    const showModal = (product) => {
+        setProduct(product)
+    }
+    const closeModal = () => {
+        setProduct('')
+    }
     return (
         <div className="products-wrapper">{products.map(product => (
             <div className="product-item" key={Math.random()}>
-                    <img src={product.imageUrl}/>
-                    <div className="product-desc">
-                        <p>{product.title}</p>
-                        <span>{product.price}</span>
-                    </div>
+                <a href="#" onClick={() => showModal(product)}>
+                    <img src={product.imageUrl} />
+                </a>
+                <div className="product-desc">
+                    <p>{product.title}</p>
+                    <span>${product.price}</span>
+                </div>
                 <button>Add to Cart</button>
             </div>
-        ))}</div>
+        ))}
+            <ProductModal product={product} closeModal={closeModal}/>
+        </div>
     )
 }
 

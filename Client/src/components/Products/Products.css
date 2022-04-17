@@ -40,4 +40,31 @@
   padding: 7px;
   border-radius: 7px;
 }
+
+.product-info img {
+  margin: 20px auto;
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-info p {
+  font-size: 20px;
+  color: #2ea5ea;
+  text-align: center;
+}
+
+.icon-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=Products.css.map */

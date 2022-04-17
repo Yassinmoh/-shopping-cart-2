@@ -33,5 +33,25 @@
     }
 }
 
+.product-info{
+    img{
+        margin: 20px auto;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        font-size:20px;
+        color: #2ea5ea;
+        text-align: center;
+    }
+}
 
+.icon-close{
+    position:absolute;
+    right:10px;
+    top:10px;
+    cursor: pointer;
+}
 
