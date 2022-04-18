@@ -21,7 +21,7 @@
         "imageUrl":"/images/watch.jpg",
         "desc":"this is Smart Watch",
         "price":"55",
-        "size":["S","L","M"]
+        "size":["S","L","XXL"]
     },
     {
         "id":"id4",
@@ -29,6 +29,6 @@
         "imageUrl":"/images/labtop.jpg",
         "desc":"this is Mobile",
         "price":"30",
-        "size":["S","M"]
+        "size":["XL"]
     }
 ]
