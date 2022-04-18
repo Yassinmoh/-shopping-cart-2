@@ -1,0 +1,31 @@
+.filter-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #c0c0c0;
+}
+
+.filter-wrapper .filter-title {
+  background-color: #2a5ea5;
+  color: #fff;
+  padding: 12px 10px;
+}
+
+.filter-wrapper select {
+  display: block;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.filter-wrapper > div {
+  padding: 10px 8px;
+  margin-bottom: 7px;
+}
+/*# sourceMappingURL=Filter.css.map */
