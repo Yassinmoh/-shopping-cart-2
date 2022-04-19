@@ -5,11 +5,12 @@ const Filter = ({
                 sort,
                 handelFilterBySize,
                 handelFilterBySort,
+                productNumber
             }) => {
     return (
         <div className="filter-wrapper">
             <h2 className="filter-title">Filter</h2>
-            <div className="nom-of-product">number of product 4 </div>
+            <div className="nom-of-product">number of product {productNumber} </div>
             <div className="filter-by-size">
                 <span className="span-title">Size</span>
                 <select className="filter-select" onChange={handelFilterBySize} value={size}>
