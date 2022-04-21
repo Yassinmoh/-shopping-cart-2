@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Products.css'
 import ProductModal from './ProductModal'
+import Bounce from 'react-reveal/Bounce';
 const Products = ({ products ,addToCart}) => {
     const [product, setProduct] = useState('')
 
@@ -11,6 +12,7 @@ const Products = ({ products ,addToCart}) => {
         setProduct('')
     }
     return (
+        <Bounce left cascade>
         <div className="products-wrapper">{products.map(product => (
             <div className="product-item" key={Math.random()}>
                 <a href="#" onClick={() => showModal(product)}>
@@ -25,6 +27,7 @@ const Products = ({ products ,addToCart}) => {
         ))}
             <ProductModal product={product} closeModal={closeModal}/>
         </div>
+        </Bounce>
     )
 }
 
