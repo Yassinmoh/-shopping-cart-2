@@ -1,0 +1,50 @@
+.checkout-form {
+  display: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #ddd;
+  width: 100%;
+  padding: 40px;
+}
+
+.checkout-form span {
+  position: absolute;
+  right: 14.5rem;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.checkout-form form {
+  width: 100%;
+  margin: auto;
+}
+
+.checkout-form form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+.checkout-form form input {
+  margin-top: 5px;
+  border-radius: 10px;
+  height: 40px;
+  padding: 7px;
+  border: 1px solid #c0c0c0;
+}
+
+.checkout-form form button {
+  background-color: #1b5c81;
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  border: 0;
+  padding: 7px;
+  border-radius: 7px;
+}
+/*# sourceMappingURL=Checkout.css.map */
