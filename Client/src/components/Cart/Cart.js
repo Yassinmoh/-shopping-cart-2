@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import './Cart.css'
-import Modal from 'react-modal'
 import Bounce from 'react-reveal/Bounce';
 import Checkout from '../Checkout/Checkout'
 import { connect } from 'react-redux'
 import { removeCart } from '../../store/Actions/Cart'
 import { useDispatch } from 'react-redux'
+import OrderModal from '../Cart/OrderModal'
+
 
 const Cart = ({ cartItems, removeCart }, props) => {
     const dispatch = useDispatch();
@@ -38,37 +39,7 @@ const Cart = ({ cartItems, removeCart }, props) => {
         <div className="cart-wrapper">
             <div className="cart-title">{cartItems.length === 0 ? 'Cart Empty' : `There is ${cartItems.length} Order`}</div>
             {/* Order Modal */}
-            <Modal isOpen={order} onRequestClose={closeModal}>
-                <div className="order-info">
-                    <span className="close-modal" onClick={closeModal}>&times;</span>
-                    <p className="alert-success">Order Done Successfuly</p>
-                    <table>
-                        <tr>
-                            <td>Name:</td>
-                            <td>{order.name}</td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td>
-                            <td>{order.email}</td>
-                        </tr>
-                        <tr>
-                            <td>Total:$</td>
-                            <td>{cartItems.reduce((acc, p) => {
-                                return acc + Number(p.price) * p.qty
-                            }, 0)}</td>
-                        </tr>
-                        <tr>
-                            <td>Selected products:</td>
-                            <td>{cartItems.map(p => (
-                                <div className="card-data">
-                                    <p>Number of Products: {p.qty}</p>
-                                    <p>Title of Products : {p.title}</p>
-                                </div>
-                            ))}</td>
-                        </tr>
-                    </table>
-                </div>
-            </Modal>
+            <OrderModal  closeModal={closeModal} cartItems={cartItems} order={order} />
             <Bounce left cascade>
                 <div className="cart-items">
                     {cartItems.map((item) => (
