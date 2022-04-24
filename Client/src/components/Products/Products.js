@@ -4,7 +4,7 @@ import ProductModal from './ProductModal'
 import Bounce from 'react-reveal/Bounce';
 import { connect } from 'react-redux'
 import { fetchProducts } from '../../store/Actions/Products';
-
+import {addToCart} from '../../store/Actions/Cart' 
 
 
 
@@ -50,4 +50,4 @@ export default connect((state) => {
     return {
         products: state.products.filterProducts
     }
-}, { fetchProducts })(Products)
+}, { fetchProducts ,addToCart})(Products)

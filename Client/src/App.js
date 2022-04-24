@@ -69,9 +69,9 @@ function App() {
     setCartItems(newCartItems)
   }
 
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))
-  }, [cartItems])
+  // useEffect(() => {
+  //   localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  // }, [cartItems])
   return (
     <Provider store={store}>
       <div className="layout">
