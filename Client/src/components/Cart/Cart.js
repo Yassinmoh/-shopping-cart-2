@@ -3,11 +3,11 @@ import './Cart.css'
 import Modal from 'react-modal'
 import Bounce from 'react-reveal/Bounce';
 import Checkout from '../Checkout/Checkout'
-import {connect} from 'react-redux'
-import {removeCart} from '../../store/Actions/Cart'
-import{useDispatch} from 'react-redux'
+import { connect } from 'react-redux'
+import { removeCart } from '../../store/Actions/Cart'
+import { useDispatch } from 'react-redux'
 
-const Cart = ({ cartItems,removeCart},props) => {
+const Cart = ({ cartItems, removeCart }, props) => {
     const dispatch = useDispatch();
 
     const [order, setOrder] = useState(false)
@@ -30,12 +30,17 @@ const Cart = ({ cartItems,removeCart},props) => {
         setValue((prevStat) => ({ ...prevStat, [e.target.name]: e.target.value }))
     }
 
+    const closeModal=()=>{
+        setOrder(false);
+    }
+
     return (
         <div className="cart-wrapper">
             <div className="cart-title">{cartItems.length === 0 ? 'Cart Empty' : `There is ${cartItems.length} Order`}</div>
             {/* Order Modal */}
-            <Modal isOpen={order}>
+            <Modal isOpen={order} onRequestClose={closeModal}>
                 <div className="order-info">
+                    <span className="close-modal" onClick={closeModal}>&times;</span>
                     <p className="alert-success">Order Done Successfuly</p>
                     <table>
                         <tr>
@@ -45,6 +50,21 @@ const Cart = ({ cartItems,removeCart},props) => {
                         <tr>
                             <td>Email:</td>
                             <td>{order.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Total:$</td>
+                            <td>{cartItems.reduce((acc, p) => {
+                                return acc + Number(p.price) * p.qty
+                            }, 0)}</td>
+                        </tr>
+                        <tr>
+                            <td>Selected products:</td>
+                            <td>{cartItems.map(p => (
+                                <div className="card-data">
+                                    <p>Number of Products: {p.qty}</p>
+                                    <p>Title of Products : {p.title}</p>
+                                </div>
+                            ))}</td>
                         </tr>
                     </table>
                 </div>
@@ -60,7 +80,7 @@ const Cart = ({ cartItems,removeCart},props) => {
                                     <p>Quantity: {item.qty}</p>
                                     <p>Price: ${item.price}</p>
                                 </div>
-                                <button onClick={() =>removeCart(item)}>Remove</button>
+                                <button onClick={() => removeCart(item)}>Remove</button>
                             </div>
                         </div>))}
                 </div>
@@ -85,8 +105,8 @@ const Cart = ({ cartItems,removeCart},props) => {
     )
 }
 
-export default connect((state)=>{
+export default connect((state) => {
     return {
-        cartItems:state.cart.cartItems
+        cartItems: state.cart.cartItems
     }
-},{removeCart})(Cart)
+}, { removeCart })(Cart)
