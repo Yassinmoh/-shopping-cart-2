@@ -1,4 +1,4 @@
-import {ADD_CART,REMOVE_CART} from '../Actions/Types'
+import {ADD_CART,REMOVE_CART,CLEAR_CART} from '../Actions/Types'
 
 
 export const cartReducer=(state={
@@ -9,6 +9,8 @@ export const cartReducer=(state={
             return{cartItems:action.data.cartItems}
         case REMOVE_CART:
             return{cartItems:action.data.cartItems}
+        case CLEAR_CART:
+            return{...state,products:[]}
         default:
             return state
     }

@@ -6,12 +6,16 @@ import { connect } from 'react-redux'
 import { removeCart } from '../../store/Actions/Cart'
 import { useDispatch } from 'react-redux'
 import OrderModal from '../Cart/OrderModal'
+import {createOrder,clearOrder} from '../../store/Actions/Orders'
 
 
-const Cart = ({ cartItems, removeCart }, props) => {
+
+
+
+const Cart = ({ cartItems, removeCart,createOrder ,clearOrder,order}) => {
     const dispatch = useDispatch();
 
-    const [order, setOrder] = useState(false)
+    // const [order, setOrder] = useState(false)
     const [showForm, setShowForm] = useState(false)
     const [value, setValue] = useState('')
 
@@ -24,7 +28,7 @@ const Cart = ({ cartItems, removeCart }, props) => {
             name: value.name,
             email: value.email,
         }
-        setOrder(order);
+        createOrder(order);
     }
 
     const handelChange = (e) => {
@@ -32,7 +36,8 @@ const Cart = ({ cartItems, removeCart }, props) => {
     }
 
     const closeModal=()=>{
-        setOrder(false);
+        clearOrder();
+        setShowForm(false);
     }
 
     return (
@@ -78,6 +83,7 @@ const Cart = ({ cartItems, removeCart }, props) => {
 
 export default connect((state) => {
     return {
+        order:state.order.order,
         cartItems: state.cart.cartItems
     }
-}, { removeCart })(Cart)
+}, { removeCart ,createOrder,clearOrder})(Cart)
