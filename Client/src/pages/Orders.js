@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchOrders} from '../store/Actions/Orders'
 import './Orders.css'
 
-const Orders = ({fetchOrders,orders,cartItems},props) => {
+const Orders = ({fetchOrders,orders,cartItems}) => {
     useEffect(() => {
         fetchOrders()
     }, [])
