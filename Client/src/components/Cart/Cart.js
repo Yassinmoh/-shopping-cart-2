@@ -4,23 +4,13 @@ import Bounce from 'react-reveal/Bounce';
 import Checkout from '../Checkout/Checkout'
 import { connect } from 'react-redux'
 import { removeCart } from '../../store/Actions/Cart'
-import { useDispatch } from 'react-redux'
 import OrderModal from '../Cart/OrderModal'
-import {createOrder,clearOrder} from '../../store/Actions/Orders'
+import { createOrder, clearOrder } from '../../store/Actions/Orders'
 
+const Cart = ({ cartItems, removeCart, createOrder, clearOrder, order }) => {
 
-
-
-
-const Cart = ({ cartItems, removeCart,createOrder ,clearOrder,order}) => {
-    const dispatch = useDispatch();
-
-    // const [order, setOrder] = useState(false)
     const [showForm, setShowForm] = useState(false)
     const [value, setValue] = useState('')
-
-
-
 
     const submitOrder = (e) => {
         e.preventDefault()
@@ -35,7 +25,7 @@ const Cart = ({ cartItems, removeCart,createOrder ,clearOrder,order}) => {
         setValue((prevStat) => ({ ...prevStat, [e.target.name]: e.target.value }))
     }
 
-    const closeModal=()=>{
+    const closeModal = () => {
         clearOrder();
         setShowForm(false);
     }
@@ -44,7 +34,7 @@ const Cart = ({ cartItems, removeCart,createOrder ,clearOrder,order}) => {
         <div className="cart-wrapper">
             <div className="cart-title">{cartItems.length === 0 ? 'Cart Empty' : `There is ${cartItems.length} Order`}</div>
             {/* Order Modal */}
-            <OrderModal  closeModal={closeModal} cartItems={cartItems} order={order} />
+            <OrderModal closeModal={closeModal} cartItems={cartItems} order={order} />
             <Bounce left cascade>
                 <div className="cart-items">
                     {cartItems.map((item) => (
@@ -72,18 +62,14 @@ const Cart = ({ cartItems, removeCart,createOrder ,clearOrder,order}) => {
                     </div>
                 )
             }
-            {/* Checkout-Form */}
             <Checkout submitOrder={submitOrder} handelChange={handelChange} showForm={showForm} setShowForm={setShowForm} />
-
-
         </div>
-
     )
 }
 
 export default connect((state) => {
     return {
-        order:state.order.order,
+        order: state.order.order,
         cartItems: state.cart.cartItems
     }
-}, { removeCart ,createOrder,clearOrder})(Cart)
+}, { removeCart, createOrder, clearOrder })(Cart)
